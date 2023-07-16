@@ -39,6 +39,7 @@ const Throttle = () => {
   }
 
   function getData() {
+    console.log("getdata");
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((res) => res.json())
       .then((res) => {
@@ -50,16 +51,15 @@ const Throttle = () => {
   }
 
   function throttle(callFunc, delay) {
-    let flag;
+    let flag ;
     return function () {
-      let context = this,
-        args = arguments;
-      flag = true;
-      if (flag) {
-        flag = false;
+      if (flag) return;
+      else {
+        flag = true;
 
         setTimeout(() => {
-          callFunc.apply(context, args);
+          callFunc();
+          flag = false;
         }, delay);
       }
     };
