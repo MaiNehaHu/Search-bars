@@ -1,0 +1,121 @@
+body {
+  margin: 0;
+  background-color: #ff4d7c;
+}
+h1 {
+  text-decoration: underline;
+  font-family: "Righteous", cursive;
+  font-weight: bolder;
+  font-size: 50px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  user-select: none;
+}
+h2 {
+  font-family: "Righteous", cursive;
+  text-align: center;
+}
+#search-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+#search-bar {
+  display: flex;
+  height: 40px;
+  width: 50%;
+  border-radius: 0.5rem;
+  font-size: x-large;
+  font-family: "Black And White Picture", sans-serif;
+}
+
+.user-cards {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  margin-right: 10%;
+}
+.card {
+  width: 18rem;
+
+  color: white;
+  margin: 1rem 1.5rem 1rem;
+  padding: 0.5rem 1.2rem 0.5rem;
+  box-shadow: 0.7rem 0.7rem 0.7rem rgb(16, 16, 96);
+  border-radius: 0.5rem;
+  background: linear-gradient(to left bottom, rgb(81, 81, 255), rgb(0, 0, 94));
+}
+.card > * {
+  display: flex;
+  justify-content: center;
+}
+.header {
+  text-align: center;
+  font-size: x-large;
+  font-family: "Chakra Petch", sans-serif;
+}
+.body {
+  text-align: center;
+  font-family: "Fasthand", cursive;
+  font-size: large;
+  letter-spacing: 0.1rem;
+}
+
+/***/
+
+.Switch-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
+  margin-top: 50px;
+}
+.Switch-buttons > * {
+  padding: 5px;
+  font-size: large;
+  text-decoration: none;
+  color: black;
+  background: #ffffff;
+  border: 2px solid black;
+  border-radius: 1rem;
+  margin: 0 15px 0;
+  font-family: "Lexend Deca", sans-serif;
+}
+.Switch-buttons > a:hover{
+  background: #5c5ce9;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0);
+  transform: scale(1.2);
+  transition: all 0.5s ease-out;
+}
+
+/***/
+@media screen and (max-width: 700px) and (min-width: 200px) {
+  h1 {
+    font-size: 28px;
+    text-align: center;
+  }
+  .card {
+    height: 100px;
+    width: 220px;
+    margin: 0.5rem 0.5rem 0.5rem;
+    padding: 0.5rem 1.2rem 0.5rem;
+
+    border-radius: 0.5rem;
+  }
+  .header {
+    font-size: large;
+  }
+  .body {
+    word-wrap: break-word;
+    font-size: medium;
+    letter-spacing: 0.1rem;
+  }
+}
