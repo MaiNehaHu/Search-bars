@@ -6,9 +6,9 @@ import Debounce from "./Components/Debounce";
 import Throttle from "./Components/Throttle";
 
 function App() {
-  // window.addEventListener("contextmenu",(e)=>{
-  //   e.preventDefault();
-  // })
+  window.addEventListener("contextmenu",(e)=>{
+    e.preventDefault();
+  })
   return (
     <React.Fragment>
       <BrowserRouter basename="/Search-bars">
