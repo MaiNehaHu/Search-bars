@@ -43,7 +43,7 @@ h2 {
   align-items: center;
   justify-content: center;
   user-select: none;
-  margin-right: 10%;
+  margin-right: 5%;
 }
 .card {
   width: 18rem;
@@ -104,6 +104,9 @@ h2 {
   h1 {
     font-size: 28px;
     text-align: center;
+  }
+  .user-cards{
+    margin-right: 10%;
   }
   .card {
     height: 100px;
