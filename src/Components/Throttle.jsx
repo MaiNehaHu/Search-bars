@@ -2,6 +2,8 @@ import React, { useState, useRef } from "react";
 import OneUser from "./OneUser";
 import Buttons from "./Buttons";
 
+import { motion, AnimatePresence } from "framer-motion";
+
 const Throttle = () => {
   const body = document.querySelector("body");
   body.style.backgroundColor = "#ffd54d";
@@ -18,8 +20,7 @@ const Throttle = () => {
 
     if (input === "") {
       setList([{ id: 0, name: "You got throttling🤩", email: "Type again" }]);
-    } 
-    else {
+    } else {
       const SearchResult = Data.filter((user) => {
         let name = user.name.toLocaleLowerCase();
         let email = user.email.toLocaleLowerCase();
@@ -31,8 +32,7 @@ const Throttle = () => {
         setList([
           { id: 99, name: "Sorry🥲 broo!!!", email: "Not found result" },
         ]);
-      } 
-      else {
+      } else {
         setList(SearchResult);
       }
     }
@@ -79,13 +79,15 @@ const Throttle = () => {
           ref={inputRef}
         />
         <h2>API is called after every 5 seconds.</h2>
-        <ul className="user-cards">
-          {list.map((user) => {
-            return (
-              <OneUser key={user.id} email={user.email} name={user.name} />
-            );
-          })}
-        </ul>
+        <motion.ul className="user-cards">
+          <AnimatePresence>
+            {list.map((user) => {
+              return (
+                <OneUser key={user.id} email={user.email} name={user.name} />
+              );
+            })}
+          </AnimatePresence>
+        </motion.ul>
       </div>
     </React.Fragment>
   );

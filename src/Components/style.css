@@ -1,6 +1,9 @@
 body {
   margin: 0;
   background-color: #ff4d7c;
+  height: 100vh;
+  height: 100dvh;
+  overflow-y: scroll;
 }
 h1 {
   text-decoration: underline;
@@ -106,7 +109,7 @@ h2 {
     height: 100px;
     width: 220px;
     margin: 0.5rem 0.5rem 0.5rem;
-    padding: 0.5rem 1.2rem 0.5rem;
+    padding: 0.5rem 1.2rem 0.8rem;
 
     border-radius: 0.5rem;
   }

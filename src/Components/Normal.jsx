@@ -3,11 +3,12 @@ import OneUser from "./OneUser";
 import "./style.css";
 import Buttons from "./Buttons";
 
+import { motion, AnimatePresence } from "framer-motion";
+
 const Normal = () => {
   const body = document.querySelector("body");
   body.style.backgroundColor = "#ff4d7c";
 
-  
   const inputRef = useRef();
 
   const [list, setList] = useState([
@@ -56,13 +57,15 @@ const Normal = () => {
         <h1>Normal Search Bar</h1>
         <input type="search" id="search-bar" onKeyUp={getData} ref={inputRef} />
         <h2>API is called for every "onKey🆙" event.</h2>
-        <ul className="user-cards">
-          {list.map((user) => {
-            return (
-              <OneUser key={user.id} email={user.email} name={user.name} />
-            );
-          })}
-        </ul>
+        <motion.ul className="user-cards">
+          <AnimatePresence>
+            {list.map((user) => {
+              return (
+                <OneUser key={user.id} email={user.email} name={user.name} />
+              );
+            })}
+          </AnimatePresence>
+        </motion.ul>
       </div>
     </React.Fragment>
   );

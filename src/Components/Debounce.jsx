@@ -2,6 +2,8 @@ import React, { useState, useRef } from "react";
 import Buttons from "./Buttons";
 import OneUser from "./OneUser";
 
+import { motion, AnimatePresence } from "framer-motion";
+
 const Debounce = () => {
   const body = document.querySelector("body");
   body.style.backgroundColor = "cornflowerblue";
@@ -53,7 +55,7 @@ const Debounce = () => {
       let context = this,
         args = arguments;
       clearTimeout(timer);
-      
+
       timer = setTimeout(() => {
         callFunc.apply(context, args);
       }, delay);
@@ -74,13 +76,15 @@ const Debounce = () => {
           ref={inputRef}
         />
         <h2>API is called after 5 seconds of "onKey🆙" event</h2>
-        <ul className="user-cards">
-          {list.map((user) => {
-            return (
-              <OneUser key={user.id} email={user.email} name={user.name} />
-            );
-          })}
-        </ul>
+        <motion.ul className="user-cards">
+          <AnimatePresence>
+            {list.map((user) => {
+              return (
+                <OneUser key={user.id} email={user.email} name={user.name} />
+              );
+            })}
+          </AnimatePresence>
+        </motion.ul>
       </div>
     </React.Fragment>
   );
