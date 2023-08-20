@@ -14,6 +14,7 @@ const Normal = () => {
   const [list, setList] = useState([
     { id: 0, name: "Hi 🙌", email: "Start Typing📝" },
   ]);
+  const [textInput, setTextInput] = useState("");
 
   function SearchData(dataFromAPI) {
     let input = inputRef.current.value.toLowerCase();
@@ -44,6 +45,7 @@ const Normal = () => {
       .then((res) => res.json())
       .then((res) => {
         SearchData(res);
+        setTextInput(inputRef.current.value);
       })
       .catch((err) => {
         alert(err);
@@ -57,6 +59,7 @@ const Normal = () => {
         <h1>Normal Search Bar</h1>
         <input type="search" id="search-bar" onKeyUp={getData} ref={inputRef} />
         <h2>API is called for every "onKey🆙" event.</h2>
+        <h2>{textInput}</h2>
         <motion.ul className="user-cards">
           <AnimatePresence>
             {list.map((user) => {

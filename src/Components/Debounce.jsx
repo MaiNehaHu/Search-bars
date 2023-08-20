@@ -13,6 +13,7 @@ const Debounce = () => {
   const [list, setList] = useState([
     { id: 0, name: "Hi...🙌", email: "I'll do debouncing search" },
   ]);
+  const [textInput, setTextInput] = useState("");
 
   function SearchDebounceData(dataFromAPI) {
     const Data = dataFromAPI;
@@ -43,6 +44,7 @@ const Debounce = () => {
       .then((res) => res.json())
       .then((res) => {
         SearchDebounceData(res);
+        setTextInput(inputRef.current.value);
       })
       .catch((err) => {
         alert(err);
@@ -76,6 +78,7 @@ const Debounce = () => {
           ref={inputRef}
         />
         <h2>API is called after 5 seconds of "onKey🆙" event</h2>
+        <h2>{textInput}</h2>
         <motion.ul className="user-cards">
           <AnimatePresence>
             {list.map((user) => {

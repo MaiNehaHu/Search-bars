@@ -13,6 +13,7 @@ const Throttle = () => {
   const [list, setList] = useState([
     { id: 0, name: "Hi...🙌", email: "I'll do throttling search" },
   ]);
+  const [textInput, setTextInput] = useState("");
 
   function SearchThrottleData(dataFromAPI) {
     const Data = dataFromAPI;
@@ -44,6 +45,7 @@ const Throttle = () => {
       .then((res) => res.json())
       .then((res) => {
         SearchThrottleData(res);
+        setTextInput(inputRef.current.value);
       })
       .catch((err) => {
         alert(err);
@@ -79,6 +81,7 @@ const Throttle = () => {
           ref={inputRef}
         />
         <h2>API is called after every 5 seconds.</h2>
+        <h2>{textInput}</h2>
         <motion.ul className="user-cards">
           <AnimatePresence>
             {list.map((user) => {
