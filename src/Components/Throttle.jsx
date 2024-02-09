@@ -53,10 +53,9 @@ const Throttle = () => {
   }
 
   function throttle(callFunc, delay) {
-    let flag ;
+    let flag = false;
     return function () {
-      if (flag) return;
-      else {
+      if (!flag) {
         flag = true;
 
         setTimeout(() => {
